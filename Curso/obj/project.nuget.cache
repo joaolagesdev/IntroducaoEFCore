@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "yYPs1xtyTBMB6dD8nHT/9MvEZVFju2dZqItl2vDAXBPnVJdFNhhwNsG4t2zswwtap75OL0Q9xqoam7zzSMgpTg==",
+  "dgSpecHash": "fBuMj8eQb0pn5AYvTNAdr2CwZIycn3h/lfF1PK0ZyiMSAQgBWXXLGz1NPLp9ZqbofxyvoSEbL/GDlA89LgbOEw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\HP\\Documents\\Projetos .NET\\Curso\\CursoEFCore.csproj",
+  "projectFilePath": "C:\\Users\\HP\\Documents\\Projetos\\introducao-entity-framework-core\\Curso\\CursoEFCore.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\HP\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\HP\\.nuget\\packages\\microsoft.data.sqlclient\\2.0.1\\microsoft.data.sqlclient.2.0.1.nupkg.sha512",

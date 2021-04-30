@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\HP\\Documents\\Projetos .NET\\Curso\\CursoEFCore.csproj": {}
+    "C:\\Users\\HP\\Documents\\Projetos\\introducao-entity-framework-core\\Curso\\CursoEFCore.csproj": {}
   },
   "projects": {
-    "C:\\Users\\HP\\Documents\\Projetos .NET\\Curso\\CursoEFCore.csproj": {
+    "C:\\Users\\HP\\Documents\\Projetos\\introducao-entity-framework-core\\Curso\\CursoEFCore.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\HP\\Documents\\Projetos .NET\\Curso\\CursoEFCore.csproj",
+        "projectUniqueName": "C:\\Users\\HP\\Documents\\Projetos\\introducao-entity-framework-core\\Curso\\CursoEFCore.csproj",
         "projectName": "CursoEFCore",
-        "projectPath": "C:\\Users\\HP\\Documents\\Projetos .NET\\Curso\\CursoEFCore.csproj",
+        "projectPath": "C:\\Users\\HP\\Documents\\Projetos\\introducao-entity-framework-core\\Curso\\CursoEFCore.csproj",
         "packagesPath": "C:\\Users\\HP\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\HP\\Documents\\Projetos .NET\\Curso\\obj\\",
+        "outputPath": "C:\\Users\\HP\\Documents\\Projetos\\introducao-entity-framework-core\\Curso\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\HP\\AppData\\Roaming\\NuGet\\NuGet.Config",
