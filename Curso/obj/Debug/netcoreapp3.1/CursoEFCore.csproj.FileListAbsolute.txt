@@ -62,3 +62,9 @@ C:\Users\HP\Documents\Projetos\introducao-entity-framework-core\Curso\obj\Debug\
 C:\Users\HP\Documents\Projetos\introducao-entity-framework-core\Curso\obj\Debug\netcoreapp3.1\CursoEFCore.dll
 C:\Users\HP\Documents\Projetos\introducao-entity-framework-core\Curso\obj\Debug\netcoreapp3.1\CursoEFCore.pdb
 C:\Users\HP\Documents\Projetos\introducao-entity-framework-core\Curso\obj\Debug\netcoreapp3.1\CursoEFCore.genruntimeconfig.cache
+C:\Users\HP\Documents\Projetos\introducao-entity-framework-core\Curso\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.dll
+C:\Users\HP\Documents\Projetos\introducao-entity-framework-core\Curso\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Binder.dll
+C:\Users\HP\Documents\Projetos\introducao-entity-framework-core\Curso\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Logging.Configuration.dll
+C:\Users\HP\Documents\Projetos\introducao-entity-framework-core\Curso\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Logging.Console.dll
+C:\Users\HP\Documents\Projetos\introducao-entity-framework-core\Curso\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Options.ConfigurationExtensions.dll
+C:\Users\HP\Documents\Projetos\introducao-entity-framework-core\Curso\bin\Debug\netcoreapp3.1\System.Text.Json.dll

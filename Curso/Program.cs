@@ -20,9 +20,36 @@ namespace CursoEFCore
             //    // Regra
             //}
             Console.WriteLine("\nCurso EFCore!");
-            InserirDados();
+             //InserirDados();
+            //InserirDadosEmMassa();
         }
 
+        private static void InserirDadosEmMassa()
+        {
+            var produto = new Produto
+            {
+                Descricao = "Produto Teste",
+                CodigoBarras = "12345678900",
+                Valor = 10m,
+                TipoProduto = TipoProduto.MercadoriaParaRevenda,
+                Ativo = true
+            };
+
+            var cliente = new Cliente
+            {
+                Nome = "Carlos",
+                CEP = "3158100",
+                Cidade = "Belo Horizonte",
+                Estado = "MG",
+                Telefone = "3198998765"
+            };
+
+            using var db = new Data.ApplicationContext();
+            db.AddRange(produto, cliente);
+            var registros = db.SaveChanges();
+            Console.WriteLine($"\nTotal Registros: {registros}");
+
+        }
         private static void InserirDados()
         {
             var produto = new Produto
@@ -40,8 +67,8 @@ namespace CursoEFCore
             // db.Entry(produto).State = EntityState.Added; ou
             db.Add(produto);
 
-            var registros = db.SaveChanges(); // Persisti no banco de dados
-            Console.WriteLine($"Total Registro(s): {registros}");
+            var registro = db.SaveChanges(); // Persisti no banco de dados
+            Console.WriteLine($"Total Registro: {registro}");
         }
     }
 }
