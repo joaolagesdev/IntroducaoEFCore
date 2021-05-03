@@ -20,8 +20,9 @@ namespace CursoEFCore
             //    // Regra
             //}
             Console.WriteLine("\nCurso EFCore!");
-             //InserirDados();
+            //InserirDados();
             //InserirDadosEmMassa();
+            ConsultarDados();
         }
 
         private static void InserirDadosEmMassa()
@@ -69,6 +70,24 @@ namespace CursoEFCore
 
             var registro = db.SaveChanges(); // Persisti no banco de dados
             Console.WriteLine($"Total Registro: {registro}");
+        }
+
+        private static void ConsultarDados()
+        {
+            using var db = new Data.ApplicationContext();
+            // var consultaPorSintaxe = (from p in db.Produtos where p.Id > 0 select p).ToList();
+            // AsNoTracking
+            var consultaPorMetodo = db.Produtos
+                .Where(p => p.Id > 0)
+                .OrderBy(p => p.Id)
+                .ToList(); //.AsNoTracking()
+
+            foreach (var produto in consultaPorMetodo)
+            {
+                Console.WriteLine($"Consultando produto: {produto.Id}");
+                // db.Produtos.Find(produto.Id); // Faz a consulta em memória, se não encontrar vai na base de dados
+                db.Produtos.FirstOrDefault(p => p.Id == produto.Id); // consulta na base de dados
+            }
         }
     }
 }
