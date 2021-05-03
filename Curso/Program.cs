@@ -25,6 +25,8 @@ namespace CursoEFCore
             //InserirDadosEmMassa();
             // ConsultarDados();
             // CadastrarPedido();
+            // CadastrarPedidoCarregamentoAdiantado();
+            // AtualizarDados();
         }
 
         private static void InserirDadosEmMassa()
@@ -123,10 +125,37 @@ namespace CursoEFCore
         {
             using var db = new Data.ApplicationContext();
             var pedidos = db.Pedidos
-                .Include(p=>p.Itens)
+                .Include(p => p.Itens)
                 .ThenInclude(p => p.Produto) // produto está dentro de Itens, por isso thenInclude
                 .ToList(); // ou Include("Itens"), inclui a propriedade de navegação
             Console.WriteLine(pedidos.Count);
+        }
+
+        private static void AtualizarDados()
+        {
+            using var db = new Data.ApplicationContext();
+            // var cliente = db.Clientes.FirstOrDefault(p => p.Id == 1);
+            // var cliente = db.Clientes.Find(1); // como você já sabe o ID, pesquise por find
+            //cliente.Nome = "Cliente Alterado passo 2";
+
+            var cliente = new Cliente
+            {
+                Id = 1
+            };
+            
+            var clienteDesconectado = new
+            {
+                Nome = "Cliente Desconectado",
+                Telefone = "987786554"
+            };
+
+            db.Attach(cliente);
+            db.Entry(cliente).CurrentValues.SetValues(clienteDesconectado);
+
+            // db.Entry(cliente).State = EntityState.Modified;
+            // db.Clientes.Update(cliente); Sobrescreve todas as propriedades, mesmo aquelas que não foram alteradas
+            // Você pode remover essa linha de código
+            db.SaveChanges();
         }
     }
 }
