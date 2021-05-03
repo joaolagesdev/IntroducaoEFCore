@@ -2,6 +2,7 @@
 using CursoEFCore.ValueObjects;
 using Microsoft.EntityFrameworkCore;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace CursoEFCore
@@ -22,7 +23,8 @@ namespace CursoEFCore
             Console.WriteLine("\nCurso EFCore!");
             //InserirDados();
             //InserirDadosEmMassa();
-            ConsultarDados();
+            // ConsultarDados();
+            // CadastrarPedido();
         }
 
         private static void InserirDadosEmMassa()
@@ -88,6 +90,43 @@ namespace CursoEFCore
                 // db.Produtos.Find(produto.Id); // Faz a consulta em memória, se não encontrar vai na base de dados
                 db.Produtos.FirstOrDefault(p => p.Id == produto.Id); // consulta na base de dados
             }
+        }
+
+        private static void CadastrarPedido()
+        {
+            using var db = new Data.ApplicationContext();
+            var cliente = db.Clientes.FirstOrDefault();
+            var produto = db.Produtos.FirstOrDefault();
+
+            var pedido = new Pedido
+            {
+                ClienteId = cliente.Id,
+                IniciadoEm = DateTime.Now,
+                FinalizadoEm = DateTime.Now,
+                Observacao = "Pedido Teste",
+                Status = StatusPedido.Analise,
+                TipoFrete = TipoFrete.SemFrete,
+                Itens = new List<PedidoItem>
+                {
+                    new PedidoItem
+                    {
+                        ProdutoId = produto.Id,
+                        Desconto = 0,
+                        Quantidade = 1,
+                        Valor = 10
+                    }
+                }
+            };
+        }
+
+        private static void ConsultarPedidoCarregamentoAdiantado()
+        {
+            using var db = new Data.ApplicationContext();
+            var pedidos = db.Pedidos
+                .Include(p=>p.Itens)
+                .ThenInclude(p => p.Produto) // produto está dentro de Itens, por isso thenInclude
+                .ToList(); // ou Include("Itens"), inclui a propriedade de navegação
+            Console.WriteLine(pedidos.Count);
         }
     }
 }
