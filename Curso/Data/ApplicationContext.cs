@@ -1,6 +1,7 @@
 ﻿using CursoEFCore.Domain;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
+using System.Linq;
 
 namespace CursoEFCore.Data
 {
@@ -10,7 +11,7 @@ namespace CursoEFCore.Data
         public DbSet<Pedido> Pedidos { get; set; }
         public DbSet<Produto> Produtos { get; set; }
         public DbSet<Cliente> Clientes { get; set; }
-        
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder
@@ -27,6 +28,24 @@ namespace CursoEFCore.Data
             // modelBuilder.ApplyConfiguration(new ProdutoConfiguration());
 
             modelBuilder.ApplyConfigurationsFromAssembly(typeof(ApplicationContext).Assembly);
+            MapearPropriedadesEsquecidas(modelBuilder);
+        }
+
+        private void MapearPropriedadesEsquecidas(ModelBuilder modelBuilder)
+        {
+            foreach (var entity in modelBuilder.Model.GetEntityTypes())
+            {
+                var properties = entity.GetProperties().Where(prop => prop.ClrType == typeof(string));
+
+                foreach (var property in properties)
+                {
+                    if(string.IsNullOrEmpty(property.GetColumnType()) &&  !property.GetMaxLength().HasValue)
+                    {
+                        // property.SetMaxLength(100);
+                        property.SetColumnType("varchar(100)");
+                    }
+                }
+            }
         }
     }
 }

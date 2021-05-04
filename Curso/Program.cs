@@ -143,7 +143,7 @@ namespace CursoEFCore
             {
                 Id = 1
             };
-            
+
             var clienteDesconectado = new
             {
                 Nome = "Cliente Desconectado",
@@ -173,6 +173,5 @@ namespace CursoEFCore
             db.Entry(cliente).State = EntityState.Deleted;
             db.SaveChanges();
         }
-
     }
 }
