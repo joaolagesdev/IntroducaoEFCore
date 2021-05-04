@@ -27,6 +27,7 @@ namespace CursoEFCore
             // CadastrarPedido();
             // CadastrarPedidoCarregamentoAdiantado();
             // AtualizarDados();
+            // RemoverRegistro();
         }
 
         private static void InserirDadosEmMassa()
@@ -157,5 +158,21 @@ namespace CursoEFCore
             // Você pode remover essa linha de código
             db.SaveChanges();
         }
+
+        private static void RemoverRegistro()
+        {
+            using var db = new Data.ApplicationContext();
+            //var cliente = db.Clientes.Find(2); // o find utiliza a chave primária da entidade
+            // db.Clientes.Remove(cliente); ou
+            // db.Remove(cliente); ou 
+            // db.Entry(cliente).State = EntityState.Deleted;
+            // db.SaveChanges();
+
+            // Forma desconectada
+            var cliente = new { id = 3 };
+            db.Entry(cliente).State = EntityState.Deleted;
+            db.SaveChanges();
+        }
+
     }
 }
